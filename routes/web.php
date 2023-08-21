@@ -24,6 +24,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::middleware('auth')->group(function (){
     Route::get("admin/home",[DashboardController::class, 'home'])->name('admin.home');
+    Route::get("guest/home",[DashboardController::class, 'home'])->name('guest.home');
 });
 
 Auth::routes();
