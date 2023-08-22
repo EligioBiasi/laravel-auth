@@ -21,7 +21,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::middleware('auth')->group(function (){
     Route::get("admin/home",[DashboardController::class, 'home'])->name('admin.home');
-    Route::resource("admin/index", ProjectController::class);
+    Route::resource("admin/project", ProjectController::class);
 });
 
 Route::middleware('auth')->group(function (){
