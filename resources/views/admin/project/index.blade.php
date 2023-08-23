@@ -28,7 +28,12 @@
                       <td>
                         <a href="" class="btn btn-sm btn-success">View</a>
                         <a href="" class="btn btn-sm btn-warning">Modify</a>
-                        <a href="" class="btn btn-sm btn-danger">Delete</a>
+                        <form action="{{route('admin.project.destroy', $project)}}" class="d-inline-block" method="POST">
+                          @csrf
+                          @method('DELETE')
+      
+                          <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                        </form>
                       </td>
                     </tr>
                     @endforeach
