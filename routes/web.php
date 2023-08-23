@@ -17,9 +17,9 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::middleware('auth')->group(function (){
-    Route::get("/",[DashboardController::class, 'home'])->name('admin.home');
-    Route::resource("admin/project", ProjectController::class);
+Route::prefix('admin')->name('admin.')->middleware('auth')->group(function (){
+    Route::get("/",[DashboardController::class, 'home'])->name('home');
+    Route::resource("/project", ProjectController::class);
 });
 
 Route::middleware('auth')->group(function (){
