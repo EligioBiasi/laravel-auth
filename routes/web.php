@@ -19,6 +19,8 @@ Auth::routes();
 
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function (){
     Route::get("/",[DashboardController::class, 'home'])->name('home');
+    Route::get("/project/deleted", [ProjectController::class, 'deletedIndex'])->name('project.deletedIndex');
+    Route::post('/project/deleted/{project}', [ProjectController::class, 'restore'] )->name('project.restore');
     Route::resource("/project", ProjectController::class);
 });
 

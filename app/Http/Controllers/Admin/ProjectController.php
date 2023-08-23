@@ -83,6 +83,15 @@ class ProjectController extends Controller
     {
         $project->delete();
         return redirect()->route('admin.project.index');
+    }
 
+    public function deletedindex(){
+        $project= Project::onlyTrashed()->paginate(10);
+        return view('admin.project.deleted', compact('project'));
+    }
+
+    public function restore($id){
+        $project= Project::withTrashed()->findOrFail($id);
+        return redirect()->route('admin.post.show', $project);
     }
 }
