@@ -5,7 +5,8 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <img src="{{$project->image}}" class="card-img-top" alt="{{$project->image}}">
+                {{-- <img src="{{$project->image}}" class="card-img-top" alt="{{$project->image}}"> --}}
+                <img src="{{asset('storage/' . $project->image)}}" class="card-img-top" alt="{{$project->image}}">
                 <div class="card-body text-center">
                   <h2>
                     {{$project->title}}
