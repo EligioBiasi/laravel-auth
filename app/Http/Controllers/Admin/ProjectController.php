@@ -92,6 +92,8 @@ class ProjectController extends Controller
 
     public function restore($id){
         $project= Project::withTrashed()->findOrFail($id);
-        return redirect()->route('admin.post.show', $project);
+        $project->restore();
+        
+        return redirect()->route('admin.project.show', $project);
     }
 }

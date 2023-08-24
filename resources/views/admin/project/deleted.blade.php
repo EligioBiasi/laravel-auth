@@ -4,9 +4,6 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
-          <h1>
-            small test change
-          </h1>
             <table class="table table-bordered border-primary">
                 <thead>
                     <tr>
