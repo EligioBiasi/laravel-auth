@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -31,9 +32,12 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
+        $img_path = Storage::put('uploads', $request['image']);
+        $data['image'] = $img_path;
+
         $data = $request->validate([
             'title' => ['required','min:3', 'max:255'],
-            'image' => ['url:https'],
+            'image' => ['file'],
             'description' => ['required', 'min:10'],
         ]);
 
