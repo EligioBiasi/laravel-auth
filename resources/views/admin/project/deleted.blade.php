@@ -26,7 +26,7 @@
                         {{$singleProject->slug}}
                       </td>
                       <td>
-                        <form class="d-inline-block me-2" action="{{ route('admin.project.restore', $project) }}" method="POST">
+                        <form class="d-inline-block me-2" action="{{ route('admin.project.restore', $singleProject->id) }}" method="POST">
                           @csrf
                           @method('POST')
 
